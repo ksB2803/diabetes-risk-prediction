@@ -522,15 +522,13 @@ Before deploying publicly, review authentication, authorisation, HTTPS, secrets 
 **Institute:** Army Institute of Technology, Pune  
 **Academic Year:** 2026–2027
 
-| Contributor | Roll Number |
+| Contributor |  
 |---|---:|
-| Kripal S Bisht | 8329 |
-| Himanshu Kumar | 8322 |
-| Kailash Bera | 8324 |
+| Kripal S Bisht 
+| Himanshu Kumar 
+| Kailash Bera 
 
-**Project Guide:** Dr. Ashwini Sapkal
 
----
 
 ## Acknowledgements
 
