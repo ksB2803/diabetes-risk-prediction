@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Results | Diabetes Risk Prediction</title>
+  <meta name="description" content="Cross-validation and held-out test results for trained models.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%2313294b'/%3E%3Cpath d='M20 6.5c4.6 6.1 9.2 10.8 9.2 16.6a9.2 9.2 0 0 1-18.4 0c0-5.8 4.6-10.5 9.2-16.6z' fill='none' stroke='%237fd1c9' stroke-width='2.4'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="10" fill="#13294b"/><path d="M20 6.5c4.6 6.1 9.2 10.8 9.2 16.6a9.2 9.2 0 0 1-18.4 0c0-5.8 4.6-10.5 9.2-16.6z" fill="none" stroke="#7fd1c9" stroke-width="2"/><path d="M13 24.2h4.2l1.7-3.6 2.6 6.4 1.9-2.8h3.6" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="brand-text">
+          <span class="brand-title">Diabetes Risk Prediction</span>
+          <span class="brand-sub">AI/ML Mini Project <span class="brand-tag">AIT</span></span>
+        </span>
+      </a>
+      <span class="service-status" id="service-status" role="status" aria-live="polite">Checking services</span>
+    </div>
+    <nav class="site-nav" aria-label="Main">
+      <div class="container">
+        <ul>
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="train.html">Train Model</a></li>
+        <li><a href="results.html" aria-current="page">Results</a></li>
+        <li><a href="predict.html">Predict</a></li>
+        <li><a href="history.html">History</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <p class="edu-band"><span class="container">Educational project. Not a medical device, and it cannot diagnose diabetes.</span></p>
+
+  <main id="main" tabindex="-1">
+    <div class="container page">
+      <div class="report-head">
+        <div class="page-head">
+          <h1>Results</h1>
+          <p id="results-subtitle">Cross-validation scores come from the training data. Test scores come from rows the models never saw.</p>
+        </div>
+        <div class="field" id="job-picker-wrap" hidden>
+          <label for="job-picker">Training job</label>
+          <select id="job-picker"></select>
+        </div>
+      </div>
+      <div id="results-root"><div class="loading"><span class="spinner" aria-hidden="true"></span>Loading results</div></div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <blockquote class="footer-quote"><p>&ldquo;The goal is not to replace human judgment, but to make data more useful.&rdquo;</p></blockquote>
+      <p class="footer-meta"><span>AI/ML Mini Project</span><span>AIT</span></p>
+      <p class="footer-note">For learning only. Predictions come from models trained on uploaded data and are not medical advice. For health concerns, consult a qualified healthcare professional.</p>
+    </div>
+  </footer>
+  <script src="vendor/chart.umd.min.js" defer></script>
+  <script src="js/api.js" defer></script>
+  <script src="js/results.js" defer></script>
+</body>
+</html>

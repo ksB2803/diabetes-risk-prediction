@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard | Diabetes Risk Prediction</title>
+  <meta name="description" content="Educational diabetes risk prediction web app: train and compare classification models on a labelled CSV.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%2313294b'/%3E%3Cpath d='M20 6.5c4.6 6.1 9.2 10.8 9.2 16.6a9.2 9.2 0 0 1-18.4 0c0-5.8 4.6-10.5 9.2-16.6z' fill='none' stroke='%237fd1c9' stroke-width='2.4'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="10" fill="#13294b"/><path d="M20 6.5c4.6 6.1 9.2 10.8 9.2 16.6a9.2 9.2 0 0 1-18.4 0c0-5.8 4.6-10.5 9.2-16.6z" fill="none" stroke="#7fd1c9" stroke-width="2"/><path d="M13 24.2h4.2l1.7-3.6 2.6 6.4 1.9-2.8h3.6" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="brand-text">
+          <span class="brand-title">Diabetes Risk Prediction</span>
+          <span class="brand-sub">AI/ML Mini Project <span class="brand-tag">AIT</span></span>
+        </span>
+      </a>
+      <span class="service-status" id="service-status" role="status" aria-live="polite">Checking services</span>
+    </div>
+    <nav class="site-nav" aria-label="Main">
+      <div class="container">
+        <ul>
+        <li><a href="index.html" aria-current="page">Dashboard</a></li>
+        <li><a href="train.html">Train Model</a></li>
+        <li><a href="results.html">Results</a></li>
+        <li><a href="predict.html">Predict</a></li>
+        <li><a href="history.html">History</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <p class="edu-band"><span class="container">Educational project. Not a medical device, and it cannot diagnose diabetes.</span></p>
+
+  <main id="main" tabindex="-1">
+    <div class="container page">
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <h1 id="hero-title">Teach a model from labelled data, then check it on rows it has never seen.</h1>
+          <svg class="hero-trace" viewBox="0 0 600 56" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+            <line x1="0" y1="42" x2="600" y2="42" stroke="#d8e0e9" stroke-width="1"/>
+            <path d="M0 40 C 40 38, 70 36, 100 30 S 160 14, 200 22 S 260 44, 300 38 S 360 10, 400 16 S 470 40, 510 34 S 570 24, 600 26" fill="none" stroke="#0f7f79" stroke-width="2.2" stroke-linecap="round"/>
+          </svg>
+          <p class="hero-lede">Upload a CSV with a yes/no outcome column, answer a few plain-language questions, and compare Logistic Regression, Random Forest and Decision Tree models with honest cross-validation and held-out test scores.</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="train.html">Train a model</a>
+            <a class="btn btn-secondary" href="predict.html">Make a prediction</a>
+          </div>
+        </div>
+        <aside class="panel" aria-labelledby="status-title">
+          <div class="panel-head"><h2 id="status-title">System status</h2><button type="button" class="btn btn-quiet" id="refresh-status">Check again</button></div>
+          <ul class="status-list" id="status-list">
+            <li><span>Web server and database</span><span class="loading loading-inline"><span class="spinner" aria-hidden="true"></span>Checking</span></li>
+          </ul>
+          <p class="small muted" id="status-note">The browser talks only to the web server, which calls the ML service internally.</p>
+        </aside>
+      </section>
+
+      <section class="section" aria-labelledby="counts-title">
+        <h2 id="counts-title" class="visually-hidden">Activity so far</h2>
+        <div class="counts" id="counts" aria-live="polite">
+          <div class="count"><span class="count-value">&ndash;</span><span class="count-label">Training jobs</span></div>
+          <div class="count"><span class="count-value">&ndash;</span><span class="count-label">Completed jobs</span></div>
+          <div class="count"><span class="count-value">&ndash;</span><span class="count-label">Saved models</span></div>
+          <div class="count"><span class="count-value">&ndash;</span><span class="count-label">Predictions made</span></div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="recent-title">
+        <div class="panel">
+          <div class="panel-head">
+            <h2 id="recent-title">Recent training jobs</h2>
+            <a href="history.html">See full history</a>
+          </div>
+          <div id="recent-jobs"><div class="loading"><span class="spinner" aria-hidden="true"></span>Loading jobs</div></div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="how-title">
+        <h2 id="how-title">How it works</h2>
+        <p class="section-intro">Five steps, in this order. The test set is put aside before any tuning, so its scores show how a model does on data it never learned from.</p>
+        <ol class="steps-flow">
+          <li><h3>Upload a CSV</h3><p>Check the preview, column types and missing values.</p></li>
+          <li><h3>Pick the answer column</h3><p>Choose the yes/no target and the input features.</p></li>
+          <li><h3>Split and tune</h3><p>Hold out a test set, then tune with cross-validation on training data only.</p></li>
+          <li><h3>Compare models</h3><p>See cross-validation and test scores side by side.</p></li>
+          <li><h3>Try a prediction</h3><p>Enter values for one record and see the model&rsquo;s output.</p></li>
+        </ol>
+      </section>
+
+      <section class="section" aria-labelledby="facts-title">
+        <h2 id="facts-title">Did you know?</h2>
+        <p class="section-intro">General background from public health agencies. It is not personal medical advice.</p>
+        <div class="facts">
+          <article class="fact">
+            <h3>It is about blood glucose</h3>
+            <p>Diabetes is a long-term condition in which blood glucose stays too high, because the body makes too little insulin or cannot use it well.</p>
+            <p class="fact-source">Source: <a href="https://www.who.int/news-room/fact-sheets/detail/diabetes" rel="noopener noreferrer" target="_blank">World Health Organization</a></p>
+          </article>
+          <article class="fact">
+            <h3>Type 1 and type 2 differ</h3>
+            <p>In type 1 the body makes little or no insulin. In type 2, the most common form, the body does not use insulin effectively.</p>
+            <p class="fact-source">Source: <a href="https://www.who.int/news-room/fact-sheets/detail/diabetes" rel="noopener noreferrer" target="_blank">World Health Organization</a></p>
+          </article>
+          <article class="fact">
+            <h3>Type 2 can be quiet at first</h3>
+            <p>Type 2 symptoms often develop over several years, and some people do not notice any. Knowing risk factors and getting checked matters.</p>
+            <p class="fact-source">Source: <a href="https://www.cdc.gov/diabetes/signs-symptoms/" rel="noopener noreferrer" target="_blank">US Centers for Disease Control and Prevention</a></p>
+          </article>
+          <article class="fact">
+            <h3>It can affect many organs</h3>
+            <p>Over time, high blood glucose can damage blood vessels and nerves, affecting the heart, eyes, kidneys and feet.</p>
+            <p class="fact-source">Source: <a href="https://www.who.int/news-room/fact-sheets/detail/diabetes" rel="noopener noreferrer" target="_blank">World Health Organization</a></p>
+          </article>
+          <article class="fact">
+            <h3>Activity helps</h3>
+            <p>Regular physical activity helps prevent type 2 diabetes and is part of healthy day-to-day management.</p>
+            <p class="fact-source">Source: <a href="https://www.who.int/news-room/fact-sheets/detail/diabetes" rel="noopener noreferrer" target="_blank">World Health Organization</a></p>
+          </article>
+          <article class="fact">
+            <h3>Diagnosis needs clinical tests</h3>
+            <p>Doctors diagnose diabetes with blood tests such as A1C or fasting plasma glucose, usually confirmed by a second result. A model demo like this one cannot diagnose anyone.</p>
+            <p class="fact-source">Source: <a href="https://www.niddk.nih.gov/health-information/professionals/clinical-tools-patient-management/diabetes/diabetes-prediabetes" rel="noopener noreferrer" target="_blank">US National Institute of Diabetes and Digestive and Kidney Diseases</a></p>
+          </article>
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <blockquote class="footer-quote"><p>&ldquo;The goal is not to replace human judgment, but to make data more useful.&rdquo;</p></blockquote>
+      <p class="footer-meta"><span>AI/ML Mini Project</span><span>AIT</span></p>
+      <p class="footer-note">For learning only. Predictions come from models trained on uploaded data and are not medical advice. For health concerns, consult a qualified healthcare professional.</p>
+    </div>
+  </footer>
+  <script src="js/api.js" defer></script>
+  <script src="js/dashboard.js" defer></script>
+</body>
+</html>

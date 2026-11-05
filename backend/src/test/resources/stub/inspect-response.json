@@ -1,0 +1,369 @@
+{
+ "filename": "demo.csv",
+ "size_bytes": 10078,
+ "n_rows": 240,
+ "n_columns": 10,
+ "duplicate_rows": 0,
+ "preview": {
+  "columns": [
+   "PatientID",
+   "Pregnancies",
+   "Glucose",
+   "BloodPressure",
+   "BMI",
+   "DiabetesPedigreeFunction",
+   "Age",
+   "PhysicalActivity",
+   "FamilyHistory",
+   "Diabetes"
+  ],
+  "rows": [
+   [
+    "1",
+    "3",
+    102.0,
+    56.0,
+    21.1,
+    0.557,
+    "38",
+    "Moderate",
+    "Yes",
+    "0"
+   ],
+   [
+    "2",
+    "1",
+    111.0,
+    71.0,
+    33.0,
+    0.737,
+    "58",
+    "Moderate",
+    "Yes",
+    "0"
+   ],
+   [
+    "3",
+    "6",
+    92.0,
+    53.0,
+    31.7,
+    0.349,
+    "34",
+    "Moderate",
+    "Yes",
+    "0"
+   ],
+   [
+    "4",
+    "2",
+    55.0,
+    61.0,
+    35.0,
+    0.504,
+    "46",
+    "Moderate",
+    "No",
+    "0"
+   ],
+   [
+    "5",
+    "4",
+    113.0,
+    65.0,
+    26.7,
+    0.346,
+    "49",
+    "High",
+    "Yes",
+    "0"
+   ],
+   [
+    "6",
+    "6",
+    147.0,
+    60.0,
+    33.0,
+    0.301,
+    "65",
+    "High",
+    "No",
+    "1"
+   ],
+   [
+    "7",
+    "4",
+    103.0,
+    74.0,
+    26.6,
+    0.613,
+    "48",
+    "Low",
+    "No",
+    "0"
+   ],
+   [
+    "8",
+    "4",
+    66.0,
+    67.0,
+    34.2,
+    0.272,
+    "34",
+    "Low",
+    "Yes",
+    "0"
+   ]
+  ]
+ },
+ "columns": [
+  {
+   "name": "PatientID",
+   "inferred_type": "numeric",
+   "missing_count": 0,
+   "missing_pct": 0.0,
+   "unique_count": 240,
+   "warnings": [
+    "ID_LIKE"
+   ],
+   "warning_messages": [
+    "Looks like an identifier (unique per row). Identifiers rarely help and can mislead the model."
+   ],
+   "suggested_feature": false,
+   "target_status": "multiclass",
+   "class_counts": null,
+   "suggested_positive_class": null,
+   "summary": {
+    "min": 1,
+    "max": 240,
+    "mean": 120.5
+   }
+  },
+  {
+   "name": "Pregnancies",
+   "inferred_type": "numeric",
+   "missing_count": 0,
+   "missing_pct": 0.0,
+   "unique_count": 8,
+   "warnings": [],
+   "warning_messages": [],
+   "suggested_feature": true,
+   "target_status": "multiclass",
+   "class_counts": [
+    {
+     "label": "2",
+     "count": 70
+    },
+    {
+     "label": "3",
+     "count": 58
+    },
+    {
+     "label": "1",
+     "count": 42
+    },
+    {
+     "label": "4",
+     "count": 29
+    },
+    {
+     "label": "0",
+     "count": 20
+    },
+    {
+     "label": "5",
+     "count": 10
+    },
+    {
+     "label": "7",
+     "count": 6
+    },
+    {
+     "label": "6",
+     "count": 5
+    }
+   ],
+   "suggested_positive_class": null,
+   "summary": {
+    "min": 0,
+    "max": 7,
+    "mean": 2.475
+   }
+  },
+  {
+   "name": "Glucose",
+   "inferred_type": "numeric",
+   "missing_count": 3,
+   "missing_pct": 1.25,
+   "unique_count": 93,
+   "warnings": [],
+   "warning_messages": [],
+   "suggested_feature": true,
+   "target_status": "multiclass",
+   "class_counts": null,
+   "suggested_positive_class": null,
+   "summary": {
+    "min": 55.0,
+    "max": 187.0,
+    "mean": 116.843882
+   }
+  },
+  {
+   "name": "BloodPressure",
+   "inferred_type": "numeric",
+   "missing_count": 8,
+   "missing_pct": 3.33,
+   "unique_count": 48,
+   "warnings": [],
+   "warning_messages": [],
+   "suggested_feature": true,
+   "target_status": "multiclass",
+   "class_counts": null,
+   "suggested_positive_class": null,
+   "summary": {
+    "min": 45.0,
+    "max": 105.0,
+    "mean": 70.892241
+   }
+  },
+  {
+   "name": "BMI",
+   "inferred_type": "numeric",
+   "missing_count": 3,
+   "missing_pct": 1.25,
+   "unique_count": 146,
+   "warnings": [],
+   "warning_messages": [],
+   "suggested_feature": true,
+   "target_status": "continuous",
+   "class_counts": null,
+   "suggested_positive_class": null,
+   "summary": {
+    "min": 16.0,
+    "max": 48.9,
+    "mean": 31.592405
+   }
+  },
+  {
+   "name": "DiabetesPedigreeFunction",
+   "inferred_type": "numeric",
+   "missing_count": 0,
+   "missing_pct": 0.0,
+   "unique_count": 202,
+   "warnings": [],
+   "warning_messages": [],
+   "suggested_feature": true,
+   "target_status": "continuous",
+   "class_counts": null,
+   "suggested_positive_class": null,
+   "summary": {
+    "min": 0.085,
+    "max": 2.4,
+    "mean": 0.477083
+   }
+  },
+  {
+   "name": "Age",
+   "inferred_type": "numeric",
+   "missing_count": 0,
+   "missing_pct": 0.0,
+   "unique_count": 51,
+   "warnings": [],
+   "warning_messages": [],
+   "suggested_feature": true,
+   "target_status": "multiclass",
+   "class_counts": null,
+   "suggested_positive_class": null,
+   "summary": {
+    "min": 23,
+    "max": 80,
+    "mean": 41.329167
+   }
+  },
+  {
+   "name": "PhysicalActivity",
+   "inferred_type": "categorical",
+   "missing_count": 3,
+   "missing_pct": 1.25,
+   "unique_count": 3,
+   "warnings": [],
+   "warning_messages": [],
+   "suggested_feature": true,
+   "target_status": "multiclass",
+   "class_counts": [
+    {
+     "label": "Moderate",
+     "count": 99
+    },
+    {
+     "label": "Low",
+     "count": 99
+    },
+    {
+     "label": "High",
+     "count": 39
+    }
+   ],
+   "suggested_positive_class": null,
+   "summary": {}
+  },
+  {
+   "name": "FamilyHistory",
+   "inferred_type": "categorical",
+   "missing_count": 0,
+   "missing_pct": 0.0,
+   "unique_count": 2,
+   "warnings": [],
+   "warning_messages": [],
+   "suggested_feature": true,
+   "target_status": "binary",
+   "class_counts": [
+    {
+     "label": "No",
+     "count": 155
+    },
+    {
+     "label": "Yes",
+     "count": 85
+    }
+   ],
+   "suggested_positive_class": "Yes",
+   "summary": {}
+  },
+  {
+   "name": "Diabetes",
+   "inferred_type": "numeric",
+   "missing_count": 0,
+   "missing_pct": 0.0,
+   "unique_count": 2,
+   "warnings": [],
+   "warning_messages": [],
+   "suggested_feature": true,
+   "target_status": "binary",
+   "class_counts": [
+    {
+     "label": "0",
+     "count": 134
+    },
+    {
+     "label": "1",
+     "count": 106
+    }
+   ],
+   "suggested_positive_class": "1",
+   "summary": {
+    "min": 0,
+    "max": 1,
+    "mean": 0.441667
+   }
+  }
+ ],
+ "suggested_target": "Diabetes",
+ "warnings": [],
+ "limits": {
+  "max_rows": 100000,
+  "max_columns": 100,
+  "min_rows": 20,
+  "min_rows_per_class": 5
+ }
+}

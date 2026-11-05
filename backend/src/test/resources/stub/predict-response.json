@@ -1,0 +1,14 @@
+{
+ "model_id": "9e8590571d9e4ae1b2d2e82b267ebefd",
+ "predicted_class": "1",
+ "is_positive_class": true,
+ "probability_positive": 0.917997,
+ "class_probabilities": {
+  "1": 0.917997,
+  "0": 0.082003
+ },
+ "positive_class": "1",
+ "negative_class": "0",
+ "warnings": [],
+ "disclaimer": "Educational project only. This model is not a medical device and cannot diagnose diabetes. Results depend on the uploaded dataset and model quality. For health concerns, consult a qualified healthcare professional."
+}

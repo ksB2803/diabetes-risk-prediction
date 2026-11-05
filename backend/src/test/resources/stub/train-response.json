@@ -1,0 +1,491 @@
+{
+ "job_id": "1",
+ "task_type": "binary_classification",
+ "target_column": "Diabetes",
+ "scoring_metric": "roc_auc",
+ "tuning_level": "quick",
+ "random_seed": 42,
+ "dataset_summary": {
+  "n_rows_raw": 240,
+  "n_rows_used": 240,
+  "duplicate_rows_removed": 0,
+  "missing_target_rows_removed": 0,
+  "n_features_used": 8
+ },
+ "preprocessing_summary": {
+  "numeric_features": [
+   "Pregnancies",
+   "Glucose",
+   "BloodPressure",
+   "BMI",
+   "DiabetesPedigreeFunction",
+   "Age"
+  ],
+  "categorical_features": [
+   "PhysicalActivity",
+   "FamilyHistory"
+  ],
+  "dropped_features": [],
+  "numeric_steps": [
+   "Convert to number",
+   "Fill missing with training median",
+   "Standardise (z-score)"
+  ],
+  "categorical_steps": [
+   "Convert to text",
+   "Fill missing with most frequent training value",
+   "One-hot encode (unknown categories ignored)"
+  ],
+  "fitted_on": "Training data only (inside each cross-validation fold during tuning)"
+ },
+ "class_mapping": {
+  "positive_class": "1",
+  "negative_class": "0",
+  "note": "The positive class is encoded as 1 and the other class as 0 inside the model."
+ },
+ "class_distribution": [
+  {
+   "label": "0",
+   "count": 134
+  },
+  {
+   "label": "1",
+   "count": 106
+  }
+ ],
+ "imbalance": {
+  "minority_share": 0.4417,
+  "flagged": false
+ },
+ "split": {
+  "train_fraction": 0.8,
+  "test_fraction": 0.2,
+  "train_rows": 192,
+  "test_rows": 48,
+  "stratified": true,
+  "random_seed": 42,
+  "train_class_counts": {
+   "0": 107,
+   "1": 85
+  },
+  "test_class_counts": {
+   "0": 27,
+   "1": 21
+  }
+ },
+ "cross_validation": {
+  "strategy": "StratifiedKFold",
+  "n_splits": 3,
+  "shuffle": true
+ },
+ "schema": {
+  "target": "Diabetes",
+  "positive_class": "1",
+  "negative_class": "0",
+  "features": [
+   {
+    "name": "Pregnancies",
+    "type": "numeric",
+    "min": 0.0,
+    "max": 7.0,
+    "median": 2.0
+   },
+   {
+    "name": "Glucose",
+    "type": "numeric",
+    "min": 55.0,
+    "max": 187.0,
+    "median": 118.0
+   },
+   {
+    "name": "BloodPressure",
+    "type": "numeric",
+    "min": 45.0,
+    "max": 105.0,
+    "median": 71.0
+   },
+   {
+    "name": "BMI",
+    "type": "numeric",
+    "min": 16.0,
+    "max": 47.5,
+    "median": 31.4
+   },
+   {
+    "name": "DiabetesPedigreeFunction",
+    "type": "numeric",
+    "min": 0.085,
+    "max": 2.4,
+    "median": 0.421
+   },
+   {
+    "name": "Age",
+    "type": "numeric",
+    "min": 23.0,
+    "max": 80.0,
+    "median": 40.0
+   },
+   {
+    "name": "PhysicalActivity",
+    "type": "categorical",
+    "categories": [
+     "High",
+     "Low",
+     "Moderate"
+    ]
+   },
+   {
+    "name": "FamilyHistory",
+    "type": "categorical",
+    "categories": [
+     "No",
+     "Yes"
+    ]
+   }
+  ]
+ },
+ "models": [
+  {
+   "model_id": "9e8590571d9e4ae1b2d2e82b267ebefd",
+   "algorithm": "logistic_regression",
+   "display_name": "Logistic Regression",
+   "best_params": {
+    "C": 1.0
+   },
+   "search": "GridSearchCV",
+   "n_candidates": 3,
+   "cv_score": 0.814274,
+   "cv_std": 0.02246,
+   "test_metrics": {
+    "accuracy": 0.75,
+    "precision": 0.68,
+    "recall": 0.809524,
+    "f1": 0.73913,
+    "roc_auc": 0.855379
+   },
+   "confusion_matrix": {
+    "labels": [
+     "0",
+     "1"
+    ],
+    "matrix": [
+     [
+      19,
+      8
+     ],
+     [
+      4,
+      17
+     ]
+    ],
+    "layout": "rows = actual class, columns = predicted class"
+   },
+   "classification_report": {
+    "0": {
+     "precision": 0.826087,
+     "recall": 0.703704,
+     "f1-score": 0.76,
+     "support": 27.0
+    },
+    "1": {
+     "precision": 0.68,
+     "recall": 0.809524,
+     "f1-score": 0.73913,
+     "support": 21.0
+    },
+    "accuracy": 0.75,
+    "macro avg": {
+     "precision": 0.753043,
+     "recall": 0.756614,
+     "f1-score": 0.749565,
+     "support": 48.0
+    },
+    "weighted avg": {
+     "precision": 0.762174,
+     "recall": 0.75,
+     "f1-score": 0.75087,
+     "support": 48.0
+    }
+   },
+   "roc_curve": {
+    "fpr": [
+     0.0,
+     0.0,
+     0.0,
+     0.037,
+     0.037,
+     0.1111,
+     0.1111,
+     0.1481,
+     0.1481,
+     0.2222,
+     0.2222,
+     0.2593,
+     0.2593,
+     0.2963,
+     0.2963,
+     0.3704,
+     0.3704,
+     0.5556,
+     0.5556,
+     1.0
+    ],
+    "tpr": [
+     0.0,
+     0.0476,
+     0.1905,
+     0.1905,
+     0.5238,
+     0.5238,
+     0.5714,
+     0.5714,
+     0.619,
+     0.619,
+     0.6667,
+     0.6667,
+     0.8095,
+     0.8095,
+     0.9048,
+     0.9048,
+     0.9524,
+     0.9524,
+     1.0,
+     1.0
+    ]
+   },
+   "feature_importance": {
+    "kind": "coefficient",
+    "caveat": "Coefficients on standardised/one-hot encoded inputs. Positive values push towards the positive class. Magnitudes depend on scaling and encoding, and they are not causation or clinical significance.",
+    "items": [
+     {
+      "feature": "Glucose",
+      "value": 1.611443
+     },
+     {
+      "feature": "BMI",
+      "value": 0.714565
+     },
+     {
+      "feature": "Age",
+      "value": 0.685046
+     },
+     {
+      "feature": "PhysicalActivity_Moderate",
+      "value": -0.418769
+     },
+     {
+      "feature": "DiabetesPedigreeFunction",
+      "value": 0.384295
+     },
+     {
+      "feature": "PhysicalActivity_High",
+      "value": 0.280475
+     },
+     {
+      "feature": "FamilyHistory_Yes",
+      "value": 0.143361
+     },
+     {
+      "feature": "FamilyHistory_No",
+      "value": -0.143215
+     },
+     {
+      "feature": "PhysicalActivity_Low",
+      "value": 0.13844
+     },
+     {
+      "feature": "Pregnancies",
+      "value": 0.078456
+     },
+     {
+      "feature": "BloodPressure",
+      "value": 0.015469
+     }
+    ]
+   },
+   "fit_seconds": 0.202,
+   "artifact": {
+    "file": "9e8590571d9e4ae1b2d2e82b267ebefd.joblib",
+    "created_at": "2026-10-27T20:13:03.990350+00:00",
+    "pipeline_version": "1",
+    "sklearn_version": "1.9.1"
+   }
+  },
+  {
+   "model_id": "4b85073dacc14c1e9d7dccb26dfc72ca",
+   "algorithm": "random_forest",
+   "display_name": "Random Forest",
+   "best_params": {
+    "max_depth": 8,
+    "n_estimators": 100
+   },
+   "search": "GridSearchCV",
+   "n_candidates": 2,
+   "cv_score": 0.789819,
+   "cv_std": 0.025773,
+   "test_metrics": {
+    "accuracy": 0.729167,
+    "precision": 0.681818,
+    "recall": 0.714286,
+    "f1": 0.697674,
+    "roc_auc": 0.832451
+   },
+   "confusion_matrix": {
+    "labels": [
+     "0",
+     "1"
+    ],
+    "matrix": [
+     [
+      20,
+      7
+     ],
+     [
+      6,
+      15
+     ]
+    ],
+    "layout": "rows = actual class, columns = predicted class"
+   },
+   "classification_report": {
+    "0": {
+     "precision": 0.769231,
+     "recall": 0.740741,
+     "f1-score": 0.754717,
+     "support": 27.0
+    },
+    "1": {
+     "precision": 0.681818,
+     "recall": 0.714286,
+     "f1-score": 0.697674,
+     "support": 21.0
+    },
+    "accuracy": 0.729167,
+    "macro avg": {
+     "precision": 0.725524,
+     "recall": 0.727513,
+     "f1-score": 0.726196,
+     "support": 48.0
+    },
+    "weighted avg": {
+     "precision": 0.730988,
+     "recall": 0.729167,
+     "f1-score": 0.729761,
+     "support": 48.0
+    }
+   },
+   "roc_curve": {
+    "fpr": [
+     0.0,
+     0.0,
+     0.0,
+     0.037,
+     0.037,
+     0.0741,
+     0.0741,
+     0.1111,
+     0.1111,
+     0.2222,
+     0.2222,
+     0.2593,
+     0.2593,
+     0.2963,
+     0.2963,
+     0.3704,
+     0.3704,
+     0.5556,
+     0.5556,
+     0.7407,
+     0.7407,
+     1.0
+    ],
+    "tpr": [
+     0.0,
+     0.0476,
+     0.0952,
+     0.0952,
+     0.2857,
+     0.2857,
+     0.5714,
+     0.5714,
+     0.6667,
+     0.6667,
+     0.7143,
+     0.7143,
+     0.8095,
+     0.8095,
+     0.8571,
+     0.8571,
+     0.9048,
+     0.9048,
+     0.9524,
+     0.9524,
+     1.0,
+     1.0
+    ]
+   },
+   "feature_importance": {
+    "kind": "importance",
+    "caveat": "Impurity-based importance: how much each input helped this model split the training data. It is not causation and not clinical significance.",
+    "items": [
+     {
+      "feature": "Glucose",
+      "value": 0.35514
+     },
+     {
+      "feature": "BMI",
+      "value": 0.146788
+     },
+     {
+      "feature": "Age",
+      "value": 0.145241
+     },
+     {
+      "feature": "DiabetesPedigreeFunction",
+      "value": 0.114479
+     },
+     {
+      "feature": "BloodPressure",
+      "value": 0.100421
+     },
+     {
+      "feature": "Pregnancies",
+      "value": 0.065076
+     },
+     {
+      "feature": "PhysicalActivity_High",
+      "value": 0.021215
+     },
+     {
+      "feature": "FamilyHistory_No",
+      "value": 0.014494
+     },
+     {
+      "feature": "FamilyHistory_Yes",
+      "value": 0.014189
+     },
+     {
+      "feature": "PhysicalActivity_Moderate",
+      "value": 0.011692
+     },
+     {
+      "feature": "PhysicalActivity_Low",
+      "value": 0.011266
+     }
+    ]
+   },
+   "fit_seconds": 0.881,
+   "artifact": {
+    "file": "4b85073dacc14c1e9d7dccb26dfc72ca.joblib",
+    "created_at": "2026-10-27T20:13:04.908552+00:00",
+    "pipeline_version": "1",
+    "sklearn_version": "1.9.1"
+   }
+  }
+ ],
+ "selected_model_id": "9e8590571d9e4ae1b2d2e82b267ebefd",
+ "selection_reason": "Logistic Regression had the highest mean cross-validation ROC-AUC on the training data. Test-set results were not used to choose it.",
+ "warnings": [],
+ "duration_seconds": 1.2,
+ "created_at": "2026-10-27T20:13:04.940728+00:00"
+}
